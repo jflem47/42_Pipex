@@ -6,7 +6,7 @@
 /*   By: jlemieux <jlemieux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 15:40:52 by jlemieux          #+#    #+#             */
-/*   Updated: 2023/04/19 17:49:24 by jlemieux         ###   ########.fr       */
+/*   Updated: 2023/04/20 13:56:33 by jlemieux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,10 @@ void	child_process1(int fd, char *cmd, char **envp, int end[2])
 	{
 		cmd = ft_strjoin(paths[i], "/");
 		cmd = ft_strjoin(cmd, cmdargs[0]);
-		if (execve(cmd, cmdargs, envp) != -1)
-		{
-			free(cmd);
-			break ;
-		}
-		//perror("Error");
+		execve(cmd, cmdargs, envp);
 		free(cmd);
 	}
+	exit(FAILURE);
 }
 
 void	child_process2(int fd, char *cmd, char **envp, int end[2])
@@ -84,12 +80,8 @@ void	child_process2(int fd, char *cmd, char **envp, int end[2])
 	{
 		cmd = ft_strjoin(paths[i], "/");
 		cmd = ft_strjoin(cmd, cmdargs[0]);
-		if (execve(cmd, cmdargs, envp) != -1)
-		{
-			free(cmd);
-			break ;
-		}
-		//perror("Error");
+		execve(cmd, cmdargs, envp);
 		free(cmd);
 	}
+	exit(FAILURE);
 }

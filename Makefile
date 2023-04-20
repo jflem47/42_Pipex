@@ -1,6 +1,6 @@
 NAME			=	pipex
 
-CC				=	gcc -g
+CC				=	gcc
 CFLAGS			=	-Wall -Wextra -Werror
 
 RM				=	rm -rf
