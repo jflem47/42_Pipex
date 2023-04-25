@@ -19,6 +19,7 @@ static char	**get_paths(char **envp)
 	int		i;
 
 	i = 0;
+	path = NULL;
 	while (envp[i])
 	{
 		if (ft_strnstr(envp[i], "PATH=", 5))
@@ -27,6 +28,11 @@ static char	**get_paths(char **envp)
 			break ;
 		}
 		i++;
+	}
+	if (!path)
+	{
+		ft_putstr_fd("pipex: no PATH variable is set.\n", 2);
+		exit(FAILURE);
 	}
 	res = ft_split(path, ':');
 	return (res);
