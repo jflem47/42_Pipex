@@ -6,13 +6,13 @@
 /*   By: jlemieux <jlemieux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 15:40:52 by jlemieux          #+#    #+#             */
-/*   Updated: 2023/04/27 17:04:06 by jlemieux         ###   ########.fr       */
+/*   Updated: 2023/04/27 17:43:48 by jlemieux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-static char	**get_paths(char **envp)
+char	**get_paths(char **envp)
 {
 	char	*path;
 	char	**res;
@@ -31,6 +31,12 @@ static char	**get_paths(char **envp)
 	}
 	res = ft_split(path, ':');
 	return (res);
+}
+
+void	error_msg(void)
+{
+	ft_putendl_fd("command not found", 2);
+	ft_putendl_fd("command not found", 2);
 }
 
 static char	**get_args(char *cmd)

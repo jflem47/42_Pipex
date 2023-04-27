@@ -6,11 +6,21 @@
 /*   By: jlemieux <jlemieux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 13:24:57 by jlemieux          #+#    #+#             */
-/*   Updated: 2023/04/20 12:36:04 by jlemieux         ###   ########.fr       */
+/*   Updated: 2023/04/27 17:50:58 by jlemieux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
+
+void	free_all(char **paths)
+{
+	int	i;
+
+	i = 0;
+	while (paths[i])
+		free(paths[i++]);
+	free(paths);
+}
 
 void	pipex(int f1, int f2, char **av, char **envp)
 {

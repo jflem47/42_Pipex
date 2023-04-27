@@ -6,7 +6,7 @@
 /*   By: jlemieux <jlemieux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 13:25:13 by jlemieux          #+#    #+#             */
-/*   Updated: 2023/04/27 10:37:13 by jlemieux         ###   ########.fr       */
+/*   Updated: 2023/04/27 17:51:14 by jlemieux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@
 //UTILS
 void	child_process1(int fd, char *cmd, char **envp, int end[2]);
 void	child_process2(int fd, char *cmd, char **envp, int end[2]);
+char	**get_paths(char **envp);
+void	error_msg(void);
+void	free_all(char **paths);
 
 //PIPEX
 void	pipex(int f1, int f2, char **av, char **envp);

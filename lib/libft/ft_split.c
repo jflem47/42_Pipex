@@ -6,7 +6,7 @@
 /*   By: jlemieux <jlemieux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/26 14:24:22 by jlemieux          #+#    #+#             */
-/*   Updated: 2023/02/24 11:02:53 by jlemieux         ###   ########.fr       */
+/*   Updated: 2023/04/27 17:48:54 by jlemieux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ char	**ft_split(char const *s, char c)
 {
 	char	**str;
 
+	if (!s)
+		return (NULL);
 	str = (char **)malloc((count_words(s, c) + 1) * sizeof(char *));
 	if (!str)
 		return (NULL);
