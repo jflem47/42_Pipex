@@ -6,7 +6,7 @@
 /*   By: jlemieux <jlemieux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 13:25:13 by jlemieux          #+#    #+#             */
-/*   Updated: 2023/04/19 17:44:13 by jlemieux         ###   ########.fr       */
+/*   Updated: 2023/04/27 10:37:13 by jlemieux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "fcntl.h"
 # include "ft_printf.h"
 # include "libft.h"
+# include <sys/errno.h>
 
 # define SUCCESS 0
 # define FAILURE 1

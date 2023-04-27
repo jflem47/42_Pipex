@@ -6,7 +6,7 @@
 /*   By: jlemieux <jlemieux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 15:40:52 by jlemieux          #+#    #+#             */
-/*   Updated: 2023/04/20 13:56:33 by jlemieux         ###   ########.fr       */
+/*   Updated: 2023/04/27 17:04:06 by jlemieux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,6 @@ static char	**get_paths(char **envp)
 			break ;
 		}
 		i++;
-	}
-	if (!path)
-	{
-		ft_putstr_fd("pipex: no PATH variable is set.\n", 2);
-		exit(FAILURE);
 	}
 	res = ft_split(path, ':');
 	return (res);
@@ -66,7 +61,8 @@ void	child_process1(int fd, char *cmd, char **envp, int end[2])
 		execve(cmd, cmdargs, envp);
 		free(cmd);
 	}
-	exit(FAILURE);
+	ft_putendl_fd("command not found.", 2);
+	exit(EXIT_FAILURE);
 }
 
 void	child_process2(int fd, char *cmd, char **envp, int end[2])
@@ -89,5 +85,6 @@ void	child_process2(int fd, char *cmd, char **envp, int end[2])
 		execve(cmd, cmdargs, envp);
 		free(cmd);
 	}
-	exit(FAILURE);
+	ft_putendl_fd("command not found.", 2);
+	exit(EXIT_FAILURE);
 }
