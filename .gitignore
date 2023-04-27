@@ -1,6 +1,0 @@
-*.o
-*.a
-.vscode
-/.DS_Store
-/pipex-tester
-.gitignore
