@@ -6,7 +6,7 @@ CFLAGS			=	-Wall -Wextra -Werror
 RM				=	rm -rf
 
 SRCS 			=	src/main.c \
-					src/process/process.c \
+					src/process.c \
 					src/pipex.c \
 
 OBJS			=	$(SRCS:%.c=%.o)

@@ -6,7 +6,7 @@
 /*   By: jlemieux <jlemieux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 15:40:52 by jlemieux          #+#    #+#             */
-/*   Updated: 2023/04/27 17:43:48 by jlemieux         ###   ########.fr       */
+/*   Updated: 2023/05/04 14:35:13 by jlemieux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ void	child_process1(int fd, char *cmd, char **envp, int end[2])
 		execve(cmd, cmdargs, envp);
 		free(cmd);
 	}
+	free_all(paths);
+	free_all(cmdargs);
 	ft_putendl_fd("command not found.", 2);
 	exit(EXIT_FAILURE);
 }
@@ -91,6 +93,8 @@ void	child_process2(int fd, char *cmd, char **envp, int end[2])
 		execve(cmd, cmdargs, envp);
 		free(cmd);
 	}
+	free_all(paths);
+	free_all(cmdargs);
 	ft_putendl_fd("command not found.", 2);
 	exit(EXIT_FAILURE);
 }
