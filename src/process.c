@@ -6,7 +6,7 @@
 /*   By: jlemieux <jlemieux@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/19 15:40:52 by jlemieux          #+#    #+#             */
-/*   Updated: 2023/05/04 14:35:13 by jlemieux         ###   ########.fr       */
+/*   Updated: 2023/05/10 14:10:08 by jlemieux         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	child_process1(int fd, char *cmd, char **envp, int end[2])
 {
 	char	**paths;
 	char	**cmdargs;
+	char	*cmd1;
 	int		i;
 
 	paths = get_paths(envp);
@@ -62,10 +63,11 @@ void	child_process1(int fd, char *cmd, char **envp, int end[2])
 	i = -1;
 	while (paths[++i])
 	{
-		cmd = ft_strjoin(paths[i], "/");
-		cmd = ft_strjoin(cmd, cmdargs[0]);
+		cmd1 = ft_strjoin(paths[i], "/");
+		cmd = ft_strjoin(cmd1, cmdargs[0]);
 		execve(cmd, cmdargs, envp);
 		free(cmd);
+		free(cmd1);
 	}
 	free_all(paths);
 	free_all(cmdargs);
@@ -77,6 +79,7 @@ void	child_process2(int fd, char *cmd, char **envp, int end[2])
 {
 	char	**paths;
 	char	**cmdargs;
+	char	*cmd1;
 	int		i;
 
 	paths = get_paths(envp);
@@ -88,10 +91,11 @@ void	child_process2(int fd, char *cmd, char **envp, int end[2])
 	i = -1;
 	while (paths[++i])
 	{
-		cmd = ft_strjoin(paths[i], "/");
-		cmd = ft_strjoin(cmd, cmdargs[0]);
+		cmd1 = ft_strjoin(paths[i], "/");
+		cmd = ft_strjoin(cmd1, cmdargs[0]);
 		execve(cmd, cmdargs, envp);
 		free(cmd);
+		free(cmd1);
 	}
 	free_all(paths);
 	free_all(cmdargs);
